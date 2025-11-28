@@ -1,1 +1,1864 @@
-fl
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Portfolio - Ravelotiana Antoine Florent</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Palette de Couleurs Modernes Style Android */
+            --primary: #1a73e8;      
+            --secondary: #4285f4;    
+            --accent: #8ab4f8;       
+            --primary-dark: #0d47a1;
+            --primary-light: #e8f0fe;
+            --gradient: linear-gradient(135deg, #1a73e8 0%, #4285f4 100%);
+            
+            /* Couleurs Sémantiques */
+            --success: #0f9d58;       
+            --success-dark: #0b8043;
+            --warning: #f4b400;
+            --info: #4285f4;
+            
+            /* Arrière-plans & Textes */
+            --bg-page: #f8f9fa;      
+            --bg-card: #ffffff;
+            --text-dark: #202124;
+            --text-light: #5f6368;
+            --white: #ffffff;
+            --border-color: #dadce0;
+            --shadow-color: rgba(60, 64, 67, 0.1);
+            
+            /* Dimensions & Effets */
+            --sidebar-width: 300px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --border-radius: 16px;
+            --border-radius-sm: 12px;
+            --shadow-sm: 0 1px 2px var(--shadow-color);
+            --shadow-md: 0 2px 6px var(--shadow-color);
+            --shadow-lg: 0 4px 12px var(--shadow-color);
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-page);
+            color: var(--text-dark);
+            min-height: 100vh;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* =========================================
+           VERSION DESKTOP - STYLE ANDROID
+           ========================================= */
+        .desktop-container {
+            display: flex;
+            min-height: 100vh;
+            background: var(--bg-page);
+        }
+
+        /* Sidebar Style Android */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--white);
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            padding: 32px 24px;
+            height: 100vh;
+            position: fixed;
+            left: 0; 
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+            overflow-y: auto;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .profile-mini {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .profile-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-light);
+            margin: 0 auto 20px;
+            box-shadow: var(--shadow-md);
+            object-fit: cover;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .profile-avatar:hover {
+            transform: scale(1.05);
+            border-color: var(--primary);
+        }
+
+        .profile-name h1 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .profile-title {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 0.5rem;
+            border: 1px solid var(--primary-light);
+        }
+
+        /* Navigation Style Android */
+        .nav-menu { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 8px; 
+            flex: 1; 
+            margin-top: 24px;
+        }
+        
+        .nav-btn {
+            background: transparent; 
+            border: none;
+            color: var(--text-light); 
+            padding: 16px 20px;
+            text-align: left; 
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            font-family: 'Inter', sans-serif; 
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex; 
+            align-items: center; 
+            gap: 16px;
+            border: 1px solid transparent;
+        }
+        
+        .nav-btn:hover { 
+            background: var(--primary-light);
+            color: var(--primary); 
+            transform: translateX(4px);
+        }
+        
+        .nav-btn.active { 
+            background: var(--primary);
+            color: var(--white); 
+            font-weight: 600; 
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-btn i {
+            width: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Style Android */
+        .desktop-contact {
+            margin-top: auto;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .contact-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            padding: 12px 16px;
+            border-radius: var(--border-radius-sm);
+            border: 1px solid transparent;
+        }
+
+        .contact-item:hover {
+            color: var(--primary);
+            background: var(--primary-light);
+            transform: translateX(4px);
+        }
+
+        .contact-item i {
+            width: 16px;
+            text-align: center;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        /* Langue Selector Android */
+        .lang-selector-desktop {
+            display: flex;
+            background: var(--primary-light);
+            padding: 6px;
+            border-radius: var(--border-radius-sm);
+            margin-top: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .lang-btn-desktop {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-light);
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .lang-btn-desktop.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .lang-btn-desktop img {
+            width: 16px;
+            border-radius: 2px;
+        }
+
+        /* Contenu Principal Style Android */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1; 
+            height: 100vh; 
+            overflow-y: auto;
+            padding: 40px 48px;
+            scroll-behavior: smooth;
+            background: var(--bg-page);
+        }
+
+        .page { 
+            display: none; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .page.active { display: block; }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page-header { 
+            margin-bottom: 40px; 
+            text-align: center;
+        }
+
+        .page-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            border-radius: 2px;
+        }
+
+        .page-subtitle { 
+            color: var(--text-light);
+            font-size: 1.2rem;
+            max-width: 500px;
+            margin: 16px auto 0;
+            font-weight: 500;
+        }
+
+        /* Cartes Style Android */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 32px;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card h3 i { 
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 12px;
+            border-radius: 14px;
+            font-size: 1.1rem;
+        }
+
+        /* Design Expérience Amélioré - Style Android */
+        .experience-grid {
+            display: grid;
+            gap: 24px;
+            margin-top: 16px;
+        }
+
+        .experience-item {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 28px;
+            border-left: 4px solid var(--primary);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .experience-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .experience-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .experience-content {
+            flex: 1;
+        }
+
+        .experience-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .experience-company {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .experience-date {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .experience-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        /* Design Éducation Style Android */
+        .education-grid {
+            display: grid;
+            gap: 24px;
+            margin-top: 16px;
+        }
+
+        .education-item {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 28px;
+            border-left: 4px solid var(--success);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .education-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .education-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--success) 0%, var(--success-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .education-content {
+            flex: 1;
+        }
+
+        .education-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .education-subtitle {
+            color: var(--success);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .education-date {
+            background: #e6f4ea;
+            color: var(--success-dark);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        /* Grid Layout pour Compétences Style Android */
+        .skills-grid-desktop {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 16px;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .skill-category h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-category h4 i {
+            color: var(--primary);
+        }
+
+        /* Badges Compétences Style Android */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .skill-badge {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .skill-badge:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-1px);
+        }
+
+        /* =========================================
+           DESIGN MOBILE - STYLE ANDROID
+           ========================================= */
+        .mobile-container {
+            display: none;
+            min-height: 100vh;
+            padding-bottom: 80px;
+            background: var(--bg-page);
+        }
+
+        /* Header Mobile Style Android */
+        .mobile-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: var(--white);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .portfolio-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Section Profil Principal Mobile */
+        .hero-profile {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            padding: 90px 24px 40px;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 24px;
+            border-radius: 0 0 24px 24px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        .hero-profile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff" opacity="0.1"><polygon points="1000,100 1000,0 0,100"/></svg>');
+            background-size: cover;
+        }
+
+        .profile-image-large {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.3);
+            margin: 0 auto 20px;
+            object-fit: cover;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-title {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .hero-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 24px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* Section Langue et Actions Mobile */
+        .action-section {
+            padding: 0 20px 20px;
+        }
+
+        .lang-notification {
+            background: var(--white);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .lang-notification p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .lang-selector {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+            background: var(--white);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.85rem;
+            font-weight: 700;
+            flex: 1;
+            max-width: 140px;
+            justify-content: center;
+        }
+
+        .lang-option.active {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .lang-option img {
+            width: 20px;
+            border-radius: 2px;
+        }
+
+        /* Bouton Projet Principal Mobile */
+        .main-project-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--success) 0%, var(--success-dark) 100%);
+            color: var(--white);
+            border: none;
+            padding: 22px;
+            border-radius: var(--border-radius);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .main-project-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Section Contact Rapide Mobile */
+        .quick-contact {
+            background: var(--white);
+            padding: 28px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            margin-top: 16px;
+        }
+
+        .quick-contact p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .contact-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px;
+            border: 1.5px solid var(--primary);
+            border-radius: var(--border-radius-sm);
+            background: var(--primary-light);
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: var(--transition);
+            justify-content: center;
+        }
+
+        .contact-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Contenu Principal Mobile */
+        .mobile-content {
+            padding: 0 20px;
+        }
+
+        .content-section {
+            display: none;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            border-radius: 2px;
+        }
+
+        .section-title i {
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 10px;
+            border-radius: 12px;
+        }
+
+        /* Cartes Mobile Style Android */
+        .modern-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modern-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .card-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        .card-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* Expérience Mobile Amélioré */
+        .experience-mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .experience-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 28px;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .experience-card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .experience-card-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .experience-card-content {
+            flex: 1;
+        }
+
+        .experience-card-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .experience-card-company {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .experience-card-date {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        /* Navigation Bas Mobile Style Android */
+        .mobile-nav-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: var(--white);
+            z-index: 1000;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 12px 16px;
+            box-shadow: 0 -2px 8px var(--shadow-color);
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 16px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+            color: var(--text-light);
+            font-size: 0.8rem;
+            font-weight: 700;
+            min-width: 64px;
+            flex: 1;
+            max-width: 80px;
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+            background: var(--primary-light);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-item i {
+            font-size: 1.4rem;
+        }
+
+        /* =========================================
+           RESPONSIVE DESIGN
+           ========================================= */
+        @media (max-width: 768px) {
+            .desktop-container {
+                display: none;
+            }
+            
+            .mobile-container {
+                display: block;
+            }
+            
+            body {
+                font-size: 14px;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 80px 20px 100px 20px;
+            }
+        }
+
+        /* Animation de notification */
+        .notification {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--success);
+            color: var(--white);
+            padding: 16px 24px;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.85rem;
+            font-weight: 700;
+            z-index: 2000;
+            box-shadow: var(--shadow-lg);
+            animation: slideDown 0.4s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =========================================
+         VERSION DESKTOP - STYLE ANDROID
+         ========================================= -->
+    <div class="desktop-container">
+        <nav class="sidebar">
+            <div class="profile-mini">
+                <img src="IMAGE1.jpg" alt="Antoine Florent RAVELOTIANA" class="profile-avatar">
+                <div class="profile-name">
+                    <h1>Antoine Florent R.</h1>
+                    <span style="color: var(--text-light); font-size: 0.9rem;">Administrateur Économique & Social</span>
+                    <div class="profile-title" data-fr="Spécialiste Data & Digital" data-en="Data & Digital Specialist">Spécialiste Data & Digital</div>
+                </div>
+            </div>
+
+            <div class="nav-menu">
+                <button class="nav-btn active" onclick="showPage('profil')">
+                    <i class="fas fa-user-tie"></i> <span data-fr="Mon Profil" data-en="My Profile">Mon Profil</span>
+                </button>
+                <button class="nav-btn" onclick="showPage('education')">
+                    <i class="fas fa-university"></i> <span data-fr="Éducation" data-en="Education">Éducation</span>
+                </button>
+                <button class="nav-btn" onclick="showPage('competences')">
+                    <i class="fas fa-cogs"></i> <span data-fr="Compétences" data-en="Skills">Compétences</span>
+                </button>
+                <button class="nav-btn" onclick="showPage('experience')">
+                    <i class="fas fa-briefcase"></i> <span data-fr="Expérience" data-en="Experience">Expérience</span>
+                </button>
+                <button class="nav-btn" onclick="showPage('projets')">
+                    <i class="fas fa-project-diagram"></i> <span data-fr="Projets" data-en="Projects">Projets</span>
+                </button>
+            </div>
+
+            <!-- Sélecteur de Langue Desktop -->
+            <div class="lang-selector-desktop">
+                <button class="lang-btn-desktop active" onclick="setLang('fr')">
+                    <img src="https://flagcdn.com/w20/fr.png" alt="FR"> FR
+                </button>
+                <button class="lang-btn-desktop" onclick="setLang('en')">
+                    <img src="https://flagcdn.com/w20/gb.png" alt="EN"> EN
+                </button>
+            </div>
+
+            <div class="desktop-contact">
+                <div class="contact-title" data-fr="Contact Professionnel" data-en="Professional Contact">Contact Professionnel</div>
+                <div class="contact-info">
+                    <a href="tel:+261347123397" class="contact-item">
+                        <i class="fas fa-mobile-alt"></i> YAS: 034 71 233 97
+                    </a>
+                    <a href="tel:+261330224984" class="contact-item">
+                        <i class="fas fa-phone"></i> Airtel: 033 02 249 84
+                    </a>
+                    <a href="mailto:antoineflorent0509@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i> antoineflorent0509@gmail.com
+                    </a>
+                    <a href="https://www.facebook.com/antoine.florent.ravelotiana/" target="_blank" class="contact-item">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                    <a href="https://wa.me/261347123397" target="_blank" class="contact-item">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <!-- Section Profil -->
+            <section id="profil" class="page active">
+                <div class="page-header">
+                    <h2 class="page-title" data-fr="Mon Profil" data-en="My Profile">Mon Profil</h2>
+                    <p class="page-subtitle" data-fr="Administrateur Économique & Social - Spécialiste Data & Digital" data-en="Economic & Social Administrator - Data & Digital Specialist">Administrateur Économique & Social - Spécialiste Data & Digital</p>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-user-tie"></i> <span data-fr="Présentation" data-en="About Me">Présentation</span></h3>
+                    <p style="line-height: 1.6; font-size: 1rem;" data-fr="Je suis Antoine Florent RAVELOTIANA, étudiant passionné en deuxième année d'Administration Économique et Sociale à l'EMIT. Je me spécialise dans la transformation digitale, la gestion de bases de données et l'optimisation des systèmes d'information. Mon parcours allie compétences administratives et expertise technique pour répondre aux défis numériques des organisations modernes." 
+                       data-en="I am Antoine Florent RAVELOTIANA, a passionate second-year student in Economic and Social Administration at EMIT. I specialize in digital transformation, database management, and information system optimization. My background combines administrative skills and technical expertise to address the digital challenges of modern organizations.">
+                       Je suis Antoine Florent RAVELOTIANA, étudiant passionné en deuxième année d'Administration Économique et Sociale à l'EMIT. Je me spécialise dans la transformation digitale, la gestion de bases de données et l'optimisation des systèmes d'information. Mon parcours allie compétences administratives et expertise technique pour répondre aux défis numériques des organisations modernes.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-bullseye"></i> <span data-fr="Objectifs Professionnels" data-en="Professional Goals">Objectifs Professionnels</span></h3>
+                    <p style="line-height: 1.6; font-size: 1rem;" data-fr="Mon objectif est de mettre à profit mes compétences en gestion de données et en administration pour contribuer à l'optimisation des processus et à la transformation digitale des organisations. Je souhaite participer à des projets innovants qui allient technologie et gestion, tout en continuant à développer mes compétences dans les domaines de la data science et de l'administration digitale." 
+                       data-en="My goal is to leverage my skills in data management and administration to contribute to process optimization and digital transformation of organizations. I want to participate in innovative projects that combine technology and management, while continuing to develop my skills in data science and digital administration.">
+                       Mon objectif est de mettre à profit mes compétences en gestion de données et en administration pour contribuer à l'optimisation des processus et à la transformation digitale des organisations. Je souhaite participer à des projets innovants qui allient technologie et gestion, tout en continuant à développer mes compétences dans les domaines de la data science et de l'administration digitale.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section Éducation -->
+            <section id="education" class="page">
+                <div class="page-header">
+                    <h2 class="page-title" data-fr="Formation & Éducation" data-en="Education & Training">Formation & Éducation</h2>
+                    <p class="page-subtitle" data-fr="Parcours académique et certifications" data-en="Academic path and certifications">Parcours académique et certifications</p>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-university"></i> <span data-fr="Parcours Académique" data-en="Academic Background">Parcours Académique</span></h3>
+                    <div class="education-grid">
+                        <div class="education-item">
+                            <div class="education-header">
+                                <div class="education-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="education-content">
+                                    <h4 class="education-title" data-fr="Licence 2 Administration Économique & Sociale" data-en="Bachelor 2 Economic & Social Administration">Licence 2 Administration Économique & Sociale</h4>
+                                    <div class="education-subtitle">EMIT Fianarantsoa</div>
+                                    <div class="education-date">2024 - 2025</div>
+                                </div>
+                            </div>
+                            <p class="education-description" data-fr="Formation pluridisciplinaire en droit, économie, gestion et informatique appliquée. Spécialisation en transformation digitale et gestion des systèmes d'information. Acquisition de compétences en analyse économique, gestion administrative et technologies numériques." 
+                               data-en="Multidisciplinary training in law, economics, management and applied IT. Specialization in digital transformation and information system management. Acquisition of skills in economic analysis, administrative management and digital technologies.">
+                               Formation pluridisciplinaire en droit, économie, gestion et informatique appliquée. Spécialisation en transformation digitale et gestion des systèmes d'information. Acquisition de compétences en analyse économique, gestion administrative et technologies numériques.
+                            </p>
+                        </div>
+
+                        <div class="education-item">
+                            <div class="education-header">
+                                <div class="education-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div class="education-content">
+                                    <h4 class="education-title" data-fr="Certificat Systèmes d'Information" data-en="Information Systems Certificate">Certificat Systèmes d'Information</h4>
+                                    <div class="education-subtitle">UNICEF Antananarivo</div>
+                                    <div class="education-date">2024</div>
+                                </div>
+                            </div>
+                            <p class="education-description" data-fr="Formation spécialisée en gestion de l'information, protection des données et systèmes humanitaires. Certification en outils de collecte de données digitaux (KoboToolbox, ODK). Maîtrise des enjeux de la gestion de l'information dans les contextes humanitaires." 
+                               data-en="Specialized training in information management, data protection and humanitarian systems. Certification in digital data collection tools (KoboToolbox, ODK). Mastery of information management issues in humanitarian contexts.">
+                               Formation spécialisée en gestion de l'information, protection des données et systèmes humanitaires. Certification en outils de collecte de données digitaux (KoboToolbox, ODK). Maîtrise des enjeux de la gestion de l'information dans les contextes humanitaires.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Compétences -->
+            <section id="competences" class="page">
+                <div class="page-header">
+                    <h2 class="page-title" data-fr="Compétences" data-en="Skills">Compétences</h2>
+                    <p class="page-subtitle" data-fr="Expertise technique et compétences professionnelles" data-en="Technical expertise and professional skills">Expertise technique et compétences professionnelles</p>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-cogs"></i> <span data-fr="Compétences Techniques" data-en="Technical Skills">Compétences Techniques</span></h3>
+                    <div class="skills-grid-desktop">
+                        <div class="skill-category">
+                            <h4><i class="fas fa-desktop"></i> Microsoft Office</h4>
+                            <div class="skills-grid">
+                                <span class="skill-badge">Excel (Avancé)</span>
+                                <span class="skill-badge">Word</span>
+                                <span class="skill-badge">PowerPoint</span>
+                                <span class="skill-badge">Outlook</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4><i class="fas fa-database"></i> Systèmes d'Information</h4>
+                            <div class="skills-grid">
+                                <span class="skill-badge">KoboToolbox</span>
+                                <span class="skill-badge">KoboCollect</span>
+                                <span class="skill-badge">ODK</span>
+                                <span class="skill-badge">mWater</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4><i class="fas fa-bolt"></i> Power Platform</h4>
+                            <div class="skills-grid">
+                                <span class="skill-badge">Power BI</span>
+                                <span class="skill-badge">Power Automate</span>
+                                <span class="skill-badge">Airtable</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4><i class="fas fa-language"></i> Langues</h4>
+                            <div class="skills-grid">
+                                <span class="skill-badge">Malagasy (Maternel)</span>
+                                <span class="skill-badge">Français (B1)</span>
+                                <span class="skill-badge">English (C1)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Expérience - Design Amélioré -->
+            <section id="experience" class="page">
+                <div class="page-header">
+                    <h2 class="page-title" data-fr="Expérience Professionnelle" data-en="Professional Experience">Expérience Professionnelle</h2>
+                    <p class="page-subtitle" data-fr="Parcours professionnel et réalisations" data-en="Professional journey and achievements">Parcours professionnel et réalisations</p>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-briefcase"></i> <span data-fr="Parcours Professionnel" data-en="Professional Journey">Parcours Professionnel</span></h3>
+                    <div class="experience-grid">
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div class="experience-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="experience-content">
+                                    <h4 class="experience-title" data-fr="Stagiaire en Gestion de Données" data-en="Data Management Intern">Stagiaire en Gestion de Données</h4>
+                                    <div class="experience-company">QIT Minerals Madagascar (QMM)</div>
+                                    <div class="experience-date">Août - Nov 2025</div>
+                                </div>
+                            </div>
+                            <p class="experience-description" data-fr="Optimisation des formulaires numériques sur Outlook avec réduction de 40% du temps de saisie. Digitalisation des processus de reporting et création de modèles automatisés. Amélioration significative de la fiabilité des données et mise en place de tableaux de bord de suivi." 
+                               data-en="Optimization of digital forms on Outlook with 40% reduction in data entry time. Digitalization of reporting processes and creation of automated templates. Significant improvement in data reliability and implementation of monitoring dashboards.">
+                               Optimisation des formulaires numériques sur Outlook avec réduction de 40% du temps de saisie. Digitalisation des processus de reporting et création de modèles automatisés. Amélioration significative de la fiabilité des données et mise en place de tableaux de bord de suivi.
+                            </p>
+                            <div class="skills-grid">
+                                <span class="skill-badge">Outlook Forms</span>
+                                <span class="skill-badge">Digitalisation</span>
+                                <span class="skill-badge">Automatisation</span>
+                                <span class="skill-badge">Optimisation</span>
+                            </div>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <div class="experience-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="experience-content">
+                                    <h4 class="experience-title" data-fr="Recenseur Numérique" data-en="Digital Enumerator">Recenseur Numérique</h4>
+                                    <div class="experience-company">MNDPT Taolagnaro</div>
+                                    <div class="experience-date">Avril 2024</div>
+                                </div>
+                            </div>
+                            <p class="experience-description" data-fr="Collecte de données démographiques via outils mobiles spécialisés. Gestion de la synchronisation des bases de données et assurance qualité des données collectées. Formation des équipes terrain aux outils digitaux et support technique continu." 
+                               data-en="Demographic data collection via specialized mobile tools. Database synchronization management and quality assurance of collected data. Field team training on digital tools and continuous technical support.">
+                               Collecte de données démographiques via outils mobiles spécialisés. Gestion de la synchronisation des bases de données et assurance qualité des données collectées. Formation des équipes terrain aux outils digitaux et support technique continu.
+                            </p>
+                            <div class="skills-grid">
+                                <span class="skill-badge">Collecte Données</span>
+                                <span class="skill-badge">KoboCollect</span>
+                                <span class="skill-badge">Synchronisation</span>
+                                <span class="skill-badge">Formation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Projets -->
+            <section id="projets" class="page">
+                <div class="page-header">
+                    <h2 class="page-title" data-fr="Projets & Réalisations" data-en="Projects & Achievements">Projets & Réalisations</h2>
+                    <p class="page-subtitle" data-fr="Projets réalisés et perspectives futures" data-en="Completed projects and future perspectives">Projets réalisés et perspectives futures</p>
+                </div>
+                
+                <div class="card">
+                    <h3><i class="fas fa-project-diagram"></i> <span data-fr="Projets Réalisés" data-en="Completed Projects">Projets Réalisés</span></h3>
+                    <div class="skills-grid-desktop">
+                        <div class="skill-category" style="border-left-color: var(--success);">
+                            <h4><i class="fas fa-check-circle"></i> Optimisation QMM</h4>
+                            <p data-fr="Refonte complète du système de reporting avec digitalisation des processus et création de tableaux de bord automatisés." 
+                               data-en="Complete overhaul of reporting system with process digitalization and creation of automated dashboards.">
+                               Refonte complète du système de reporting avec digitalisation des processus et création de tableaux de bord automatisés.
+                            </p>
+                            <div class="skills-grid" style="margin-top: 12px;">
+                                <span class="skill-badge">Outlook Forms</span>
+                                <span class="skill-badge">Digitalisation</span>
+                                <span class="skill-badge">Automatisation</span>
+                            </div>
+                        </div>
+                        <div class="skill-category" style="border-left-color: var(--warning);">
+                            <h4><i class="fas fa-chart-bar"></i> Tableaux de Bord RH</h4>
+                            <p data-fr="Création de KPI et indicateurs de performance pour la prise de décision stratégique en ressources humaines." 
+                               data-en="Creation of KPIs and performance indicators for strategic decision making in human resources.">
+                               Création de KPI et indicateurs de performance pour la prise de décision stratégique en ressources humaines.
+                            </p>
+                            <div class="skills-grid" style="margin-top: 12px;">
+                                <span class="skill-badge">Power BI</span>
+                                <span class="skill-badge">KPI</span>
+                                <span class="skill-badge">Reporting</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-lightbulb"></i> <span data-fr="Perspectives Futures" data-en="Future Perspectives">Perspectives Futures</span></h3>
+                    <p style="line-height: 1.6; font-size: 1rem;" data-fr="Je souhaite développer des solutions innovantes en transformation digitale pour les organisations malgaches, en particulier dans les domaines de l'administration électronique et de la gestion des données. Mon objectif est de contribuer à la modernisation des processus administratifs grâce aux technologies numériques." 
+                       data-en="I want to develop innovative digital transformation solutions for Malagasy organizations, particularly in the fields of e-administration and data management. My goal is to contribute to the modernization of administrative processes through digital technologies.">
+                       Je souhaite développer des solutions innovantes en transformation digitale pour les organisations malgaches, en particulier dans les domaines de l'administration électronique et de la gestion des données. Mon objectif est de contribuer à la modernisation des processus administratifs grâce aux technologies numériques.
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- =========================================
+         VERSION MOBILE - STYLE ANDROID
+         ========================================= -->
+    <div class="mobile-container">
+        
+        <!-- Header Mobile -->
+        <header class="mobile-header">
+            <div class="portfolio-title" data-fr="Mon Portfolio" data-en="My Portfolio">Mon Portfolio</div>
+        </header>
+
+        <!-- Section Hero avec Photo -->
+        <section class="hero-profile">
+            <img src="IMAGE1.jpg" alt="Antoine Florent RAVELOTIANA" class="profile-image-large">
+            <h1 class="hero-name">Antoine Florent RAVELOTIANA</h1>
+            <p class="hero-title" data-fr="Administrateur Économique & Social" data-en="Economic & Social Administrator">Administrateur Économique & Social</p>
+            <div class="hero-badge" data-fr="Spécialiste Data & Digital" data-en="Data & Digital Specialist">Spécialiste Data & Digital</div>
+        </section>
+
+        <!-- Section Langue et Actions -->
+        <section class="action-section">
+            <div class="lang-notification">
+                <p data-fr="🌍 Choisissez votre langue préférée" data-en="🌍 Choose your preferred language">🌍 Choisissez votre langue préférée</p>
+                <div class="lang-selector">
+                    <div class="lang-option active" onclick="setMobileLang('fr')">
+                        <img src="https://flagcdn.com/w20/fr.png" alt="FR">
+                        <span>Français</span>
+                    </div>
+                    <div class="lang-option" onclick="setMobileLang('en')">
+                        <img src="https://flagcdn.com/w20/gb.png" alt="EN">
+                        <span>English</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="main-project-btn" onclick="showMobileSection('projets')">
+                <i class="fas fa-project-diagram"></i>
+                <span data-fr="🚀 VOIR MES PROJETS" data-en="🚀 SEE MY PROJECTS">🚀 VOIR MES PROJETS</span>
+            </button>
+
+            <!-- Contact Rapide Professionnel -->
+            <div class="quick-contact">
+                <p data-fr="📞 Contact Professionnel" data-en="📞 Professional Contact">📞 Contact Professionnel</p>
+                <div class="contact-buttons">
+                    <a href="tel:+261347123397" class="contact-btn">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>YAS</span>
+                    </a>
+                    <a href="tel:+261330224984" class="contact-btn">
+                        <i class="fas fa-phone"></i>
+                        <span>Airtel</span>
+                    </a>
+                    <a href="https://wa.me/261347123397" target="_blank" class="contact-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="mailto:antoineflorent0509@gmail.com" class="contact-btn">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                    </a>
+                    <a href="https://www.facebook.com/antoine.florent.ravelotiana/" target="_blank" class="contact-btn">
+                        <i class="fab fa-facebook"></i>
+                        <span>Facebook</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contenu Principal Mobile -->
+        <main class="mobile-content">
+            
+            <!-- Section Profil -->
+            <section id="mobile-profil" class="content-section active">
+                <h2 class="section-title"><i class="fas fa-user-tie"></i> <span data-fr="Mon Profil" data-en="My Profile">Mon Profil</span></h2>
+                
+                <div class="modern-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 class="card-title" data-fr="Présentation" data-en="About Me">Présentation</h3>
+                    </div>
+                    <p data-fr="Je suis Antoine Florent RAVELOTIANA, étudiant passionné en Administration Économique et Sociale à l'EMIT. Je me spécialise dans la transformation digitale, la gestion de bases de données et l'optimisation des systèmes d'information." 
+                       data-en="I am Antoine Florent RAVELOTIANA, a passionate student in Economic and Social Administration at EMIT. I specialize in digital transformation, database management, and information system optimization.">
+                       Je suis Antoine Florent RAVELOTIANA, étudiant passionné en Administration Économique et Sociale à l'EMIT. Je me spécialise dans la transformation digitale, la gestion de bases de données et l'optimisation des systèmes d'information.
+                    </p>
+                </div>
+
+                <div class="modern-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="card-title" data-fr="Objectifs" data-en="Objectives">Objectifs</h3>
+                    </div>
+                    <p data-fr="Mon objectif est de mettre à profit mes compétences en gestion de données et en administration pour contribuer à l'optimisation des processus et à la transformation digitale des organisations." 
+                       data-en="My goal is to leverage my skills in data management and administration to contribute to process optimization and digital transformation of organizations.">
+                       Mon objectif est de mettre à profit mes compétences en gestion de données et en administration pour contribuer à l'optimisation des processus et à la transformation digitale des organisations.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section Éducation Mobile -->
+            <section id="mobile-education" class="content-section">
+                <h2 class="section-title"><i class="fas fa-university"></i> <span data-fr="Formations & Éducation" data-en="Education & Training">Formations & Éducation</span></h2>
+                
+                <div class="education-mobile">
+                    <div class="education-card">
+                        <div class="education-card-header">
+                            <div class="education-card-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="education-card-content">
+                                <h3 class="education-card-title" data-fr="L2 Administration Éco. & Sociale" data-en="L2 Economic & Social Admin">L2 Administration Éco. & Sociale</h3>
+                                <div class="education-card-subtitle">EMIT Fianarantsoa</div>
+                                <div class="education-card-date">2024 - 2025</div>
+                            </div>
+                        </div>
+                        <p data-fr="Formation complète en droit, économie, gestion et informatique appliquée. Spécialisation en transformation digitale et gestion des systèmes d'information." 
+                           data-en="Complete training in law, economics, management and applied IT. Specialization in digital transformation and information system management.">
+                           Formation complète en droit, économie, gestion et informatique appliquée. Spécialisation en transformation digitale et gestion des systèmes d'information.
+                        </p>
+                        <div class="skills-grid" style="margin-top: 12px;">
+                            <span class="skill-badge">Droit</span>
+                            <span class="skill-badge">Économie</span>
+                            <span class="skill-badge">Gestion</span>
+                            <span class="skill-badge">Informatique</span>
+                        </div>
+                    </div>
+
+                    <div class="education-card">
+                        <div class="education-card-header">
+                            <div class="education-card-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="education-card-content">
+                                <h3 class="education-card-title" data-fr="Certificat Système d'Information" data-en="Information System Certificate">Certificat Système d'Information</h3>
+                                <div class="education-card-subtitle">UNICEF Antananarivo</div>
+                                <div class="education-card-date">2024</div>
+                            </div>
+                        </div>
+                        <p data-fr="Formation spécialisée en gestion de l'information, protection des données et systèmes humanitaires. Certification en outils de collecte de données digitaux." 
+                           data-en="Specialized training in information management, data protection and humanitarian systems. Certification in digital data collection tools.">
+                           Formation spécialisée en gestion de l'information, protection des données et systèmes humanitaires. Certification en outils de collecte de données digitaux.
+                        </p>
+                        <div class="skills-grid" style="margin-top: 12px;">
+                            <span class="skill-badge">Gestion Info</span>
+                            <span class="skill-badge">Protection Données</span>
+                            <span class="skill-badge">Systèmes Humanitaires</span>
+                            <span class="skill-badge">Collecte Données</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Compétences -->
+            <section id="mobile-competences" class="content-section">
+                <h2 class="section-title"><i class="fas fa-cogs"></i> <span data-fr="Compétences" data-en="Skills">Compétences</span></h2>
+                
+                <div class="modern-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h3 class="card-title">Microsoft Office</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <span class="skill-badge">Excel (Avancé)</span>
+                        <span class="skill-badge">Word</span>
+                        <span class="skill-badge">PowerPoint</span>
+                        <span class="skill-badge">Outlook</span>
+                    </div>
+                </div>
+
+                <div class="modern-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="card-title" data-fr="Systèmes d'Information" data-en="Information Systems">Systèmes d'Information</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <span class="skill-badge">KoboToolbox</span>
+                        <span class="skill-badge">KoboCollect</span>
+                        <span class="skill-badge">ODK</span>
+                        <span class="skill-badge">mWater</span>
+                    </div>
+                    <p style="margin-top: 12px; font-size: 0.85rem; color: var(--text-light);" data-fr="Déploiement de formulaires mobiles, collecte terrain et gestion des données d'enquêtes." 
+                       data-en="Mobile form deployment, field data collection and survey data management.">
+                       Déploiement de formulaires mobiles, collecte terrain et gestion des données d'enquêtes.
+                    </p>
+                </div>
+
+                <div class="modern-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="card-title">Power Platform & Data</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <span class="skill-badge">Power BI</span>
+                        <span class="skill-badge">Power Automate</span>
+                        <span class="skill-badge">Airtable</span>
+                    </div>
+                    <p style="margin-top: 12px; font-size: 0.85rem; color: var(--text-light);" data-fr="Création de dashboards interactifs, automatisation de tâches répétitives et bases de données." 
+                       data-en="Interactive dashboard creation, task automation and databases.">
+                       Création de dashboards interactifs, automatisation de tâches répétitives et bases de données.
+                    </p>
+                </div>
+
+                <div class="modern-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3 class="card-title" data-fr="Langues" data-en="Languages">Langues</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <span class="skill-badge">
+                            <img src="https://flagcdn.com/w20/mg.png" style="width: 14px; margin-right: 6px;" alt="MG"> 
+                            Malagasy (Maternel)
+                        </span>
+                        <span class="skill-badge">
+                            <img src="https://flagcdn.com/w20/fr.png" style="width: 14px; margin-right: 6px;" alt="FR"> 
+                            Français (B1)
+                        </span>
+                        <span class="skill-badge">
+                            <img src="https://flagcdn.com/w20/gb.png" style="width: 14px; margin-right: 6px;" alt="GB"> 
+                            English (C1)
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Expérience Mobile - Design Amélioré -->
+            <section id="mobile-experience" class="content-section">
+                <h2 class="section-title"><i class="fas fa-briefcase"></i> <span data-fr="Expériences Professionnelles" data-en="Professional Experience">Expériences Professionnelles</span></h2>
+                
+                <div class="experience-mobile">
+                    <div class="experience-card">
+                        <div class="experience-card-header">
+                            <div class="experience-card-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="experience-card-content">
+                                <h3 class="experience-card-title" data-fr="Stagiaire Gestion de Données" data-en="Data Management Intern">Stagiaire Gestion de Données</h3>
+                                <div class="experience-card-company">QIT Minerals Madagascar (QMM)</div>
+                                <div class="experience-card-date">Août - Nov 2025</div>
+                            </div>
+                        </div>
+                        <p data-fr="Optimisation des formulaires numériques sur Outlook avec réduction du temps de saisie de 40% et amélioration significative de la fiabilité des données. Digitalisation des processus de reporting et création de modèles automatisés." 
+                           data-en="Optimized digital forms on Outlook with 40% reduction in data entry time and significant improvement in data reliability. Digitalization of reporting processes and creation of automated templates.">
+                           Optimisation des formulaires numériques sur Outlook avec réduction du temps de saisie de 40% et amélioration significative de la fiabilité des données. Digitalisation des processus de reporting et création de modèles automatisés.
+                        </p>
+                        <div class="skills-grid" style="margin-top: 12px;">
+                            <span class="skill-badge">Outlook Forms</span>
+                            <span class="skill-badge">Digitalisation</span>
+                            <span class="skill-badge">Automatisation</span>
+                            <span class="skill-badge">Optimisation</span>
+                        </div>
+                    </div>
+
+                    <div class="experience-card">
+                        <div class="experience-card-header">
+                            <div class="experience-card-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="experience-card-content">
+                                <h3 class="experience-card-title" data-fr="Recenseur Numérique" data-en="Digital Enumerator">Recenseur Numérique</h3>
+                                <div class="experience-card-company">MNDPT Taolagnaro</div>
+                                <div class="experience-card-date">Avril 2024</div>
+                            </div>
+                        </div>
+                        <p data-fr="Collecte de données démographiques via outils mobiles spécialisés. Gestion de la synchronisation des bases de données et assurance de la qualité des données collectées. Formation des équipes terrain aux outils digitaux." 
+                           data-en="Demographic data collection via specialized mobile tools. Database synchronization management and quality assurance of collected data. Field team training on digital tools.">
+                           Collecte de données démographiques via outils mobiles spécialisés. Gestion de la synchronisation des bases de données et assurance de la qualité des données collectées. Formation des équipes terrain aux outils digitaux.
+                        </p>
+                        <div class="skills-grid" style="margin-top: 12px;">
+                            <span class="skill-badge">Collecte Données</span>
+                            <span class="skill-badge">KoboCollect</span>
+                            <span class="skill-badge">Synchronisation</span>
+                            <span class="skill-badge">Formation</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Projets -->
+            <section id="mobile-projets" class="content-section">
+                <h2 class="section-title"><i class="fas fa-project-diagram"></i> <span data-fr="Projets Réalisés & Futurs" data-en="Completed & Future Projects">Projets Réalisés & Futurs</span></h2>
+                
+                <div class="modern-card" style="border-left: 4px solid var(--success);">
+                    <div class="card-header">
+                        <div class="card-icon" style="background: #e6f4ea; color: var(--success);">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3 class="card-title" style="color: var(--success-dark);" data-fr="✅ PROJET RÉALISÉ" data-en="✅ COMPLETED PROJECT">✅ PROJET RÉALISÉ</h3>
+                    </div>
+                    <h4 data-fr="Optimisation QMM - Système Reporting" data-en="QMM Optimization - Reporting System">Optimisation QMM - Système Reporting</h4>
+                    <p data-fr="Refonte complète du système de reporting des quarts avec digitalisation des processus." 
+                       data-en="Complete overhaul of shift reporting system with process digitalization.">
+                       Refonte complète du système de reporting des quarts avec digitalisation des processus.
+                    </p>
+                    <div class="skills-grid" style="margin-top: 12px;">
+                        <span class="skill-badge">Outlook Forms</span>
+                        <span class="skill-badge">Digitalisation</span>
+                        <span class="skill-badge">Processus</span>
+                    </div>
+                </div>
+
+                <div class="modern-card" style="border-left: 4px solid var(--warning);">
+                    <div class="card-header">
+                        <div class="card-icon" style="background: #fef7e0; color: var(--warning);">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3 class="card-title" style="color: var(--warning);" data-fr="📊 PROJET RÉALISÉ" data-en="📊 COMPLETED PROJECT">📊 PROJET RÉALISÉ</h3>
+                    </div>
+                    <h4 data-fr="Tableaux de Bord RH - KPI & Reporting" data-en="HR Dashboards - KPI & Reporting">Tableaux de Bord RH - KPI & Reporting</h4>
+                    <p data-fr="Création de tableaux de bord interactifs avec indicateurs de performance pour la prise de décision." 
+                       data-en="Creation of interactive dashboards with performance indicators for decision making.">
+                       Création de tableaux de bord interactifs avec indicateurs de performance pour la prise de décision.
+                    </p>
+                    <div class="skills-grid" style="margin-top: 12px;">
+                        <span class="skill-badge">Power BI</span>
+                        <span class="skill-badge">KPI</span>
+                        <span class="skill-badge">Reporting</span>
+                    </div>
+                </div>
+
+                <div class="modern-card" style="border-left: 4px solid var(--primary); background: var(--primary-light);">
+                    <div class="card-header">
+                        <div class="card-icon" style="background: var(--primary); color: var(--white);">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="card-title" style="color: var(--primary-dark);" data-fr="💡 PROJETS FUTURS" data-en="💡 FUTURE PROJECTS">💡 PROJETS FUTURS</h3>
+                    </div>
+                    <p data-fr="Développement de solutions innovantes en transformation digitale et optimisation des processus pour les organisations malgaches." 
+                       data-en="Development of innovative solutions in digital transformation and process optimization for Malagasy organizations.">
+                       Développement de solutions innovantes en transformation digitale et optimisation des processus pour les organisations malgaches.
+                    </p>
+                    <div class="skills-grid" style="margin-top: 12px;">
+                        <span class="skill-badge">Innovation</span>
+                        <span class="skill-badge">Digitalisation</span>
+                        <span class="skill-badge">Optimisation</span>
+                        <span class="skill-badge">Solutions</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Navigation Bas Mobile -->
+        <nav class="mobile-nav-bottom">
+            <button class="nav-item active" onclick="showMobileSection('profil')">
+                <i class="fas fa-user-tie"></i>
+                <span data-fr="Profil" data-en="Profile">Profil</span>
+            </button>
+            <button class="nav-item" onclick="showMobileSection('education')">
+                <i class="fas fa-university"></i>
+                <span data-fr="Éducation" data-en="Education">Éducation</span>
+            </button>
+            <button class="nav-item" onclick="showMobileSection('competences')">
+                <i class="fas fa-cogs"></i>
+                <span data-fr="Compétences" data-en="Skills">Compétences</span>
+            </button>
+            <button class="nav-item" onclick="showMobileSection('experience')">
+                <i class="fas fa-briefcase"></i>
+                <span data-fr="Expérience" data-en="Experience">Expérience</span>
+            </button>
+        </nav>
+    </div>
+
+    <script>
+        // =========================================
+        // FONCTIONNALITÉS DESKTOP
+        // =========================================
+
+        // Changer d'onglet desktop
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+
+            const navButtons = document.querySelectorAll('.sidebar .nav-btn');
+            navButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(pageId)) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Changer la langue desktop
+        function setLang(lang) {
+            // Mettre à jour les boutons de langue
+            document.querySelectorAll('.lang-btn-desktop').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+            
+            // Mettre à jour tous les textes
+            document.querySelectorAll(`[data-${lang}]`).forEach(el => {
+                const textContent = el.getAttribute(`data-${lang}`);
+                el.textContent = textContent;
+            });
+            
+            // Mettre à jour le titre de la page
+            document.title = lang === 'fr' ? 'Portfolio - Ravelotiana Antoine Florent' : 'Portfolio - Ravelotiana Antoine Florent';
+        }
+
+        // =========================================
+        // FONCTIONNALITÉS MOBILES
+        // =========================================
+
+        // Langue par défaut : Français
+        let currentLang = 'fr';
+
+        // Changer de section sur mobile
+        function showMobileSection(sectionId) {
+            // Masquer toutes les sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Afficher la section sélectionnée
+            document.getElementById(`mobile-${sectionId}`).classList.add('active');
+            
+            // Mettre à jour la navigation bas
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Activer l'item de navigation bas
+            const activeNavItem = Array.from(document.querySelectorAll('.nav-item')).find(item => 
+                item.getAttribute('onclick').includes(sectionId)
+            );
+            if (activeNavItem) activeNavItem.classList.add('active');
+            
+            // Scroll vers le haut
+            window.scrollTo(0, 0);
+        }
+
+        // Changer la langue sur mobile
+        function setMobileLang(lang) {
+            currentLang = lang;
+            
+            // Mettre à jour les options de langue
+            document.querySelectorAll('.lang-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+            
+            // Mettre à jour tous les textes
+            document.querySelectorAll(`[data-${lang}]`).forEach(el => {
+                const textContent = el.getAttribute(`data-${lang}`);
+                el.textContent = textContent;
+            });
+            
+            // Mettre à jour le titre de la page
+            document.title = lang === 'fr' ? 'Portfolio - Ravelotiana Antoine Florent' : 'Portfolio - Ravelotiana Antoine Florent';
+            
+            // Afficher une notification
+            showNotification(lang === 'fr' ? 'Langue changée en Français' : 'Language changed to English');
+        }
+
+        // Afficher une notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Version desktop
+            showPage('profil');
+            setLang('fr'); // Français activé par défaut
+            
+            // Version mobile
+            showMobileSection('profil');
+            // Le français est déjà activé par défaut via la classe active
+        });
+
+        // Détection mobile et affichage de la bonne version
+        function isMobile() {
+            return window.innerWidth <= 768;
+        }
+
+        // Au chargement et au redimensionnement
+        function handleResponsive() {
+            if (isMobile()) {
+                document.querySelector('.mobile-container').style.display = 'block';
+                document.querySelector('.desktop-container').style.display = 'none';
+            } else {
+                document.querySelector('.mobile-container').style.display = 'none';
+                document.querySelector('.desktop-container').style.display = 'flex';
+            }
+        }
+
+        // Appliquer au chargement et aux redimensionnements
+        window.addEventListener('load', handleResponsive);
+        window.addEventListener('resize', handleResponsive);
+    </script>
+</body>
+</html>
